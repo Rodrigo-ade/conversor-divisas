@@ -8,6 +8,18 @@ body{
 
 #resultados{
     margin: 0 auto;
-    height: 500px;
+    height: 250px;
     overflow-y: auto;
+}
+
+#error-base{
+    color: red;
+}
+
+.oculto{
+    visibility: hidden !important;
+}
+
+.spinner-grow{
+    margin: 0 auto;
 }
