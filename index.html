@@ -10,7 +10,7 @@
 </head>
 <body>
     
-    <div class="container text-center mt-3">
+    <div class="container text-center mt-1 mb-3">
         <h1>Conversor de divisas</h1>
         
         <hr>
@@ -24,12 +24,11 @@
                 <input id="monto" class="form-control" type="number"/>
             </div>
             <div class="col"> 
-                <label for="base" class="form-label">Base</label>
-                <select class="form-select" id="base" required>
+                <label for="bases" class="form-label">Base</label>
+                <select class="form-select" id="bases" required>
                   <option selected disabled value="">Moneda...</option>
-                  <option>ARS</option>
-                  <option>USD</option>
                 </select>
+                <p id="error-base" class="oculto">Debes elegir una base primero</p>
             </div>
             <div class="col">
                 <label for="fecha" class="form-label">Fecha</label>
@@ -38,18 +37,23 @@
 
             <div class="row">
                 <div class="col align-self-center text-center mt-3">
-                    <button type="button" class="btn btn-success">Obtener Cambios</button>
+                    <button type="button" class="btn btn-success" id="convertir">Obtener Cambios</button>
                 </div>
             </div>
-
         </div>
 
         <hr>
 
         <div class="row mt-3">
-            <h3 id="texto-resultado">Los cambios de "X" "DIVISA", para el día "FECHA" son:</h3>
+            <div class="row oculto" id="cargando">
+                <div class="spinner-grow text-success" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
 
-            <div class="col-8" id="resultados">
+            <div class="col-8 oculto" id="resultados">
+                <h3 id="texto-resultado"></h3>
+
                 <table class="table table-secondary table-responsive table-bordered table-hover">
                     <thead>
                         <tr>
@@ -57,15 +61,7 @@
                             <th scope="col">Monto</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>DIVISA1</td>
-                            <td>MONTO1</td>
-                        </tr>
-                        <tr>
-                            <td>DIVISA2</td>
-                            <td>MONTO2</td>
-                        </tr>
+                    <tbody id="lista-conversiones">
                     </tbody>
                 </table>
             </div>
