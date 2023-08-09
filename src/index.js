@@ -9,7 +9,6 @@ function agregarNuevaBase(codigo, descripcion) {
   document.querySelector('#bases').appendChild(BASE);
 }
 
-    document.querySelector("#bases").appendChild(BASE);
 function obtenerSimbolosBase() {
   const URL_SIMBOLOS = 'https://api.exchangerate.host/symbols';
   fetch(URL_SIMBOLOS)
