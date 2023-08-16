@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Conversor Divisas</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='src/main.css'>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+    
+    <div class="container text-center mt-1 mb-3">
+        <h1>Conversor de divisas</h1>
+        
+        <hr>
+
+        <div class="row" id="interfaz-seleccion">
+            <div class="col mt-4">
+               <p>Obtener cambio de</p>
+            </div>
+            <div class="col">
+                <label for="monto" class="form-label">Monto</label>
+                <input id="monto" class="form-control" type="number"/>
+            </div>
+            <div class="col"> 
+                <label for="bases" class="form-label">Base</label>
+                <select class="form-select" id="bases" required>
+                  <option selected disabled value="">Moneda...</option>
+                </select>
+                <p id="error-base" class="oculto">Debes elegir una base primero</p>
+            </div>
+            <div class="col">
+                <label for="fecha" class="form-label">Fecha</label>
+                <input id="fecha" class="form-control" type="date" />
+            </div>
+
+            <div class="row">
+                <div class="col align-self-center text-center mt-3">
+                    <button type="button" class="btn btn-success" id="convertir">Obtener Cambios</button>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="row mt-3">
+            <div class="row oculto" id="cargando">
+                <div class="spinner-grow text-success" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+
+            <div class="col-8 oculto" id="resultados">
+                <h3 id="texto-resultado"></h3>
+
+                <table class="table table-secondary table-responsive table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Divisa</th>
+                            <th scope="col">Monto</th>
+                        </tr>
+                    </thead>
+                    <tbody id="lista-conversiones">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src='src/index.js'></script>
+</body>
+</html>

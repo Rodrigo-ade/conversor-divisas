@@ -1,0 +1,25 @@
+body{
+    background-color: rgb(218, 218, 218) !important;
+}
+
+#interfaz-seleccion{
+    margin-top: 20px;
+}
+
+#resultados{
+    margin: 0 auto;
+    height: 250px;
+    overflow-y: auto;
+}
+
+#error-base{
+    color: red;
+}
+
+.oculto{
+    visibility: hidden !important;
+}
+
+.spinner-grow{
+    margin: 0 auto;
+}
