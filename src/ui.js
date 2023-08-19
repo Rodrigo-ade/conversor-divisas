@@ -1,14 +1,11 @@
 /* eslint-disable no-use-before-define */
-import { obtenerCambios as servicioObtenerCambios } from './divisas-servicio.js';
+import { obtenerCambios as servicioObtenerCambios } from './servicios/divisas-servicio.js';
 
 export function mostrarDivisas(divisas) {
-  Object.values(divisas).forEach((divisa) => {
-    const divisaNombre = divisa.description;
-    const divisaCodigo = divisa.code;
-
+  divisas.forEach((divisa) => {
     const BASE = document.createElement('option');
-    BASE.value = divisaCodigo;
-    BASE.textContent = divisaNombre;
+    BASE.value = divisa.codigo;
+    BASE.textContent = divisa.descripcion;
 
     document.querySelector('#bases').appendChild(BASE);
   });
@@ -81,8 +78,8 @@ function eliminarDivisasAnteriores() {
 }
 
 function mostrarCambios(cambios) {
-  Object.keys(cambios).forEach((divisa) => {
-    crearCambio(divisa, cambios[divisa]);
+  cambios.cambios.forEach((cambio) => {
+    crearCambio(cambio.simbolo , cambio.precio);
   });
 }
 
